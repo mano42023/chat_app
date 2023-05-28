@@ -1,0 +1,361 @@
+{
+	"variables": [],
+	"info": {
+		"name": "chatapp API",
+		"_postman_id": "f7a97157-a161-ea7f-73c0-a40bb0b3a0cc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/api/login",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"manoj\",\n\t\"password\":\"kumar\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_user",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/manage_user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjE0ODI3fQ.32J8YecvJjD-nUkxptSq7qU2aHd2c8NK6BotXJOJLv0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\":\"user4\",\r\n    \"username\":\"user4\",\r\n    \"password\": \"user4\",\r\n    \"role\":\"user\"\r\n}"
+				},
+				"description": "for creating new user. Only admin can add or modify the user details."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/get_users",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/get_users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_user",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/manage_user?id=647379df057671cba6719d7d",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"manage_user"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "647379df057671cba6719d7d",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "delete users by id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_user",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/manage_user",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjE0ODI3fQ.32J8YecvJjD-nUkxptSq7qU2aHd2c8NK6BotXJOJLv0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\":\"user4.1\",\r\n    \"username\":\"user4\",\r\n    \"role\":\"user\"\r\n}"
+				},
+				"description": "This api for updata user. Only admin can add or modify the user details."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_groups",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/manage_groups",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"group_name\":\"group4\",\r\n\t\"username\":\"user2\"\r\n}"
+				},
+				"description": "For creating a group. Any user can create "
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/get_groups",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/get_groups",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get groups where user is created/added "
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_groups",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/manage_groups",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"group_name\":\"group4\",\r\n\t\"username\":[\"user2\", \"user1\", \"user3\"]\r\n}"
+				},
+				"description": "For adding user to the group."
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/manage_groups?group_name=group3",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/manage_groups?group_name=group3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"manage_groups"
+					],
+					"query": [
+						{
+							"key": "group_name",
+							"value": "group3",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "delete grop by groupname"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/logout",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/logout",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Logout api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/messages",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/messages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"group_name\": \"group1\",\n\t\"message\": \"test\"\n\n}"
+				},
+				"description": "For send a message to the group"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/get_messages?group_name=group1",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/get_messages?group_name=group1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"get_messages"
+					],
+					"query": [
+						{
+							"key": "group_name",
+							"value": "group1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbm9qIiwicm9sZSI6ImFkbWluIiwibmFtZSI6Im1hbm9qIiwiZXhwIjoxNjg1MjkyMDkyfQ.yUE8ak78Ql8nTNBcV6TRR2ZK0-T6qOPqwQqbJtWo3QE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "get all messages in the group"
+			},
+			"response": []
+		}
+	]
+}
