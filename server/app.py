@@ -18,6 +18,19 @@ CORS(app)
 mongo = PyMongo(app)
 
 
+def create_admin():
+    collection = mongo.db.users
+
+    password = sha256_crypt.encrypt("admin")
+    data = {"name": "admin", "role": "admin", "username": "admin", "password": password}
+    result = collection.find_one({"username": "admin"})
+    print(result)
+    if not result:
+        print("creating admin user..")
+        collection.insert_one(data)
+
+create_admin()
+
 def validate_jwt(token):
     try:
         data = jwt.decode(token, app.secret_key, algorithms=["HS256"])
@@ -143,13 +156,13 @@ def login():
 def manage_groups():
     collection = mongo.db.groups
     message_collection = mongo.db.messages
-    
+
     if request.method == "DELETE":
-        group_name = request.args['group_name']
+        group_name = request.args["group_name"]
         collection.delete_one({"group_name": group_name})
         message_collection.delete_one({"group_name": group_name})
         return jsonify({"msg": f"Group deleted successfully"})
-    
+
     group_name = request.json["group_name"]
 
     if request.method == "POST":
