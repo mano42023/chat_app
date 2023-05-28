@@ -1,0 +1,53 @@
+<div>
+    <div class="title">
+        <h1>Manage User</h1>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="submit()" class="userform">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="name" formControlName="name" required>
+            <mat-error>
+                <span *ngIf="userForm.get('name')?.errors?.['required']">
+                    Name is required!!
+                </span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username" required>
+            <mat-error>
+                <span *ngIf="userForm.get('username')?.errors?.['required']">
+                    Username is required!!
+                </span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="show_pass" class="form-field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Password" formControlName="password" required>
+            <mat-error>
+                <span *ngIf="userForm.get('password')?.errors?.['required']">
+                    Password is required!!
+                </span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role" required>
+                <mat-option value="user">User</mat-option>
+                <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+            <mat-error>
+                <span *ngIf="userForm.get('role')?.errors?.['required']">
+                    Role is required!!
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <div>
+            <button class="mr-20" mat-raised-button type="button" mat-dialog-close>Close</button>
+            <button mat-raised-button color="primary" [disabled]="!userForm.valid">Submit</button>
+        </div>
+    </form>
+</div>

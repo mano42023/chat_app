@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="group-list">
+        <mat-card class="new-group">
+            <mat-card-content (click)="show_group = !show_group">
+                <h2><mat-icon>group_add</mat-icon> Create Group</h2>
+            </mat-card-content>
+        </mat-card>
+        <mat-card *ngIf="show_group">
+            <mat-card-content class="group-name">
+                <mat-form-field style="width: 100%;margin-right: 10px;" appearance="outline">
+                    <mat-label>Group Name</mat-label>
+                    <input matInput placeholder="Enter Group Name" [(ngModel)]="groupname" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="createGroups()">Create</button>
+            </mat-card-content>
+        </mat-card>
+        <hr>
+        <mat-card class="mb-3" *ngFor="let i of groups" (click)="getMessages(i)">
+            <mat-card-content>{{i.group_name}}</mat-card-content>
+        </mat-card>
+    </div>
+    <div class="messages">
+        <mat-card class="card">
+            <div class="grop_header">
+                <div class="group-details">
+                    <div mat-card-avatar class="header-image mr-20"></div>
+                    <h2 *ngIf="selected_group">{{selected_group.group_name}}</h2>
+                </div>
+                <button mat-mini-fab (click)="addUsertoGroup()">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </div>
+
+            <mat-card-content class="box">
+                <div *ngFor="let m of messages" class="chat" [class.same-user]="m.username == username">
+                    <div style="height: 36px;">
+                        <div *ngIf="m.username != username" title="{{m.username}}" class="profile">
+                            {{m.username[0]}}
+                        </div>
+                        <div class="bubble">{{m.content}}</div>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-footer class="footer">
+                <mat-form-field style="width: 100%;" appearance="outline">
+                    <mat-label>Messages</mat-label>
+                    <input matInput placeholder="Send Message" [(ngModel)]="message">
+                </mat-form-field>
+                <button mat-mini-fab color="primary" (click)="sendMessage()">
+                    <mat-icon>send</mat-icon>
+                </button>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

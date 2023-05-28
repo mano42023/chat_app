@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Add users to group</h1>
+    <div class="user-list">
+        <!-- <mat-card class="mb-3" *ngFor="let i of users">
+            <mat-checkbox [(ngModel)]="i.isChecked" class="example-margin">
+                {{i.username}}
+            </mat-checkbox>
+        </mat-card> -->
+        <mat-selection-list [(ngModel)]="selectedusers">
+            <mat-list-option [selected]="i.isChecked" *ngFor="let i of users" [value]="i.username">
+                {{i.username}}
+            </mat-list-option>
+        </mat-selection-list>
+
+    </div>
+    <button class="mr-20" mat-raised-button type="button" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="addusers()">Add Users</button>
+</div>

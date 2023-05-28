@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from '../service/api-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,9 @@ import { ApiServiceService } from '../service/api-service.service';
 export class LoginComponent {
 
   loginForm!: FormGroup;
-  auth_error = false;
+  auth_error = '';
 
-  constructor(private fb: FormBuilder, private reqs: ApiServiceService) {
+  constructor(private fb: FormBuilder, private reqs: ApiServiceService, private router: Router) {
     this.loginForm = fb.group({
       "username": ['', Validators.required],
       "password": ['', Validators.required],
@@ -26,7 +27,19 @@ export class LoginComponent {
         if (res && res.hasOwnProperty('err')) {
           this.auth_error = res.msg;
         } else {
-          console.log(res.msg)
+          this.auth_error = '';
+          console.log(res);
+          sessionStorage.setItem('token', res.token);
+          let token: any = this.reqs.token_decode(res.token);
+          if (token['role'] == 'admin') {
+            this.router.navigate(['admin']).then(() => {
+              window.location.reload();
+            });
+          } else {
+            this.router.navigate(['home']).then(() => {
+              window.location.reload();
+            });
+          }
         }
       })
     }

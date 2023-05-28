@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,15 +19,28 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table'
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { LoginComponent } from './login/login.component';
-
+import { HomeComponent } from './home/home.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { TokenInterceptor } from './service/api-service.service';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { AddUserToGroupComponent } from './add-user-to-group/add-user-to-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    ManageUserComponent,
+    EditUserComponent,
+    AddUserToGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +57,19 @@ import { LoginComponent } from './login/login.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatListModule,
+    MatMenuModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
